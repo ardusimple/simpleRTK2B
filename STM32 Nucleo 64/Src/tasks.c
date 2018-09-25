@@ -1,3 +1,13 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file contains the tasks running at 1ms.
+% 
+% The code includes a dummy example application that blinks two LEDs at a
+% frequency proportional to the relative East error between the rover and
+% the base.
+%
+%                           www.ardusimple.com - 2018
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 #include "hardware.h"
 #include <math.h>
 #include "tasks.h"

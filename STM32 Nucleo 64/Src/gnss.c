@@ -1,3 +1,14 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file contains the functions needed to read the UBX protocol
+% message and parse it to usable variables.
+% 
+% This code is an example and can be modified to parse whatever message
+% needed. In this case, a few variables from the UBX_NAV_PVT and
+% UBX_NAV_RELPOSNED messages are extracted.
+%
+%                           www.ardusimple.com - 2018
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 #include <math.h>
 #include "hardware.h"
 #include "tasks.h"
