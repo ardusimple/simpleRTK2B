@@ -164,7 +164,7 @@ bool CGNSS::parseUBX(byte *buf, int cnt)
     if(buf[1]==UBX_NAV_PVT && cnt>=92)
     {
 	  iTOW = bytesToLong(&(buf[4]));
-	  UTCyear = bytesToShort(&(buf[8]));;
+	  UTCyear = bytesToShort(&(buf[8]));
       UTCmonth = (int)buf[10];
       UTCday = (int)buf[11];
       UTChour = (int)buf[12];
@@ -183,7 +183,14 @@ bool CGNSS::parseUBX(byte *buf, int cnt)
 	  relPos.E = bytesToLong(&(buf[16]))+0.01f*(float)buf[25];
 	  relPos.D = bytesToLong(&(buf[20]))+0.01f*(float)buf[26];
     }
-  }	
+  }
+  else if(buf[0]==UBX_MON)
+  {
+	if(buf[1]==UBX_MON_MSGPP && cnt>=120)
+    {
+	  msgs = bytesToShort(&(buf[46]));
+    }
+  }
   return ok;
 }
 

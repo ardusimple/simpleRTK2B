@@ -24,9 +24,11 @@ enum
 {
   // UBX CLASS ID
    UBX_NAV     	 	   = 0x01   //Navigation Results Messages
+  ,UBX_MON     	 	   = 0x0A   //Monitoring Messages
   // UBX MESSAGE ID
   ,UBX_NAV_PVT         = 0x07   //NAV-PVT: Navigation Position Velocity Time Solution
-  ,UBX_NAV_RELPOSNED   = 0x3c   //NAV-RELPOSNED: Relative Positioning Information in NED frame
+  ,UBX_NAV_RELPOSNED   = 0x3C   //NAV-RELPOSNED: Relative Positioning Information in NED frame
+  ,UBX_MON_MSGPP       = 0x06   //MON-MSGPP: Message Parse and Process Status
 };
 
 typedef struct
@@ -60,6 +62,7 @@ class CGNSS
     int UTCminute;
     int UTCsecond;
     bool parseUBX(byte *b, int cnt);
+	int msgs;
 };
 
 #define MAX_GNSS          256
