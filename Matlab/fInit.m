@@ -31,6 +31,8 @@ function [ rover, output ] = fInit(  )
     rover.pos.relposD       = 0;
     rover.pos.hacc          = 0;
     rover.pos.vacc          = 0;
+    rover.pos.gspeed        = 0;
+    rover.pos.sacc          = 0;
 % Internal
     rover.parser.state      = 0;
     rover.parser.payloadLen = 0;

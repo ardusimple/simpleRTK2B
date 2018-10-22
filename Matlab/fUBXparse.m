@@ -37,11 +37,16 @@ if msg(1)==UBX_NAV
         rover.pos.alt=double(typecast(uint8(msg(i+36:i+39)),'int32'))*1e-3;
         rover.pos.hacc=double(typecast(uint8(msg(i+40:i+43)),'uint32'))*1e-3;
         rover.pos.vacc=double(typecast(uint8(msg(i+44:i+47)),'uint32'))*1e-3;
+        rover.pos.gspeed=double(typecast(uint8(msg(i+60:i+63)),'int32'))*1e-3;
+        rover.pos.sacc=double(typecast(uint8(msg(i+68:i+71)),'uint32'))*1e-3;
     elseif msg(2) == UBX_NAV_RELPOSNED && length(msg)>=40
         i = 5;
         rover.sync=double(typecast(uint8(msg(i+4:i+7)),'uint32'));
-        rover.pos.relposN=double(typecast(uint8(msg(i+8:i+11)),'int32'))*1e-2;
-        rover.pos.relposE=double(typecast(uint8(msg(i+12:i+15)),'int32'))*1e-2;
-        rover.pos.relposD=double(typecast(uint8(msg(i+16:i+19)),'int32'))*1e-2;
+        rover.pos.relposN=(double(typecast(uint8(msg(i+8:i+11)),'int32'))+...
+                           1e-2*double(typecast(uint8(msg(i+20)),'int8')))*1e-2;
+        rover.pos.relposE=(double(typecast(uint8(msg(i+12:i+15)),'int32'))+...
+                           1e-2*double(typecast(uint8(msg(i+21)),'int8')))*1e-2;
+        rover.pos.relposD=(double(typecast(uint8(msg(i+16:i+19)),'int32'))+...
+                           1e-2*double(typecast(uint8(msg(i+22)),'int8')))*1e-2;
     end
 end
