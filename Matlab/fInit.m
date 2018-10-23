@@ -20,7 +20,12 @@ function [ rover, output ] = fInit(  )
     rover.time.day          = 0;
     rover.time.hour         = 0;
     rover.time.min          = 0;
-    rover.time.sec          = 0;    
+    rover.time.sec          = 0;  
+    rover.time.msss         = 0;
+% Status
+    rover.status.fix        = 0;
+    rover.status.flags      = 0;
+    rover.status.fixStat    = 0;
 % Position
     rover.pos.fixType       = 0;
     rover.pos.lon           = 0;
@@ -33,6 +38,12 @@ function [ rover, output ] = fInit(  )
     rover.pos.vacc          = 0;
     rover.pos.gspeed        = 0;
     rover.pos.sacc          = 0;
+% High Precision Position
+    rover.hppos.lon           = 0;
+    rover.hppos.lat           = 0;
+    rover.hppos.alt           = 0;
+    rover.hppos.hacc          = 0;
+    rover.hppos.vacc          = 0;
 % Internal
     rover.parser.state      = 0;
     rover.parser.payloadLen = 0;
